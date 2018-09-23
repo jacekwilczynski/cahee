@@ -1,0 +1,57 @@
+@import "../../vendor/bootstrap/less/bootstrap";
+@import "navbar/navbar-highlight";
+
+// Bootstrap variables
+@navbar-height: 150px;
+@navbar-default-bg: transparent;
+@navbar-default-brand-color: @link-color;
+@navbar-default-brand-hover-color: @link-hover-color;
+@navbar-default-link-color: @link-color;
+@navbar-default-link-hover-color: @navbar-default-link-color;
+@navbar-default-link-active-color: @navbar-default-link-color;
+@nav-link-hover-bg: transparent;
+@navbar-default-toggle-border-color: transparent;
+@navbar-default-toggle-hover-bg: @navbar-default-toggle-border-color;
+@navbar-default-toggle-icon-bar-bg: @text-color;
+
+.navbar {
+  &-brand {
+    font-family: Pacifico, sans-serif;
+    font-size: 50px;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    &-collapse {
+      position: absolute;
+      margin-top: -@navbar-height / 3;
+      width: 100%;
+    }
+  }
+
+  &-nav {
+    @highlight-offset: 13px;
+    @highlight-color: #ff5f33;
+
+    font-weight: bold;
+    text-transform: uppercase;
+
+    .active > a::before {
+      .navbar-highlight(@highlight-offset, @highlight-color, top);
+    }
+
+    a {
+      &:hover::after {
+        .navbar-highlight(@highlight-offset, @highlight-color, bottom);
+      }
+    }
+
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
+    }
+  }
+
+  &-toggle .icon-bar {
+    height: 4px;
+    width: 24px;
+  }
+}

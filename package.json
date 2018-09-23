@@ -1,0 +1,21 @@
+{
+  "name": "cahee",
+  "version": "1.0.0",
+  "description": "A single page website coded from a PSD file",
+  "scripts": {
+    "start": "gulp",
+    "build": "NODE_ENV=production gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-inject": "^4.3.2",
+    "gulp-less": "^4.0.1"
+  }
+}
