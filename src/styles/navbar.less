@@ -15,22 +15,27 @@
 @navbar-default-toggle-icon-bar-bg: @text-color;
 
 .navbar-resize-on-scroll() {
-  .navbar__shadow() {
+  .navbar-shadow() {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   }
 
-  transition: @transition-duration;
-
-  &-scrolling {
-    .navbar__shadow();
-    background: @body-bg;
+  .navbar-sm() {
     height: 110px;
     margin-top: -36px;
     min-height: auto;
   }
 
+  transition: @transition-duration;
+
+  &-scrolling {
+    .navbar-shadow();
+    .navbar-sm();
+    background: @body-bg;
+  }
+
   @media (max-width: @screen-xs-max) {
-    .navbar__shadow();
+    .navbar-shadow();
+    .navbar-sm();
 
     &-collapse {
       box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.25);
