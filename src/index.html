@@ -67,9 +67,14 @@
   <script>
     (function() {
       var $navbar = $(".navbar");
-      $(window).scroll(function() {
-        $navbar.addClass("navbar-scrolling");
-      })
+      var handleWindowScroll = function() {
+        if (window.scrollY > 0) {
+          $navbar.addClass("navbar-scrolling")
+        } else {
+          $navbar.removeClass("navbar-scrolling")
+        }
+      };
+      setInterval(handleWindowScroll, 250);
     })();
   </script>
 </body>
