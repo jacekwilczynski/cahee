@@ -21,7 +21,7 @@ gulp.task("compile", function() {
       })
     )
     .pipe(
-      inject(gulp.src(["src/scripts/navbar.js"]), {
+      inject(gulp.src(["src/scripts/*.js"]), {
         removeTags: true,
         transform: function(filePath, file) {
           return "<script>" + file.contents.toString() + "</script>";
