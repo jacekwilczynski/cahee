@@ -11,19 +11,6 @@
     font-size: 50px;
   }
 
-  @media (max-width: @screen-xs-max) {
-    background: @body-bg;
-
-    &-collapse {
-      background: @body-bg;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 100px;
-      width: 100%;
-    }
-  }
-
   &-nav {
     @highlight-offset: 13px;
     @highlight-color: #ff5f33;
@@ -53,5 +40,18 @@
   &-toggle .icon-bar {
     height: 4px;
     width: 24px;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    background: @body-bg;
+
+    &-collapse {
+      background: @body-bg;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 100px;
+      width: 100%;
+    }
   }
 }
