@@ -21,6 +21,14 @@ gulp.task("compile", function() {
       })
     )
     .pipe(
+      inject(gulp.src(["src/scripts/navbar.js"]), {
+        removeTags: true,
+        transform: function(filePath, file) {
+          return "<script>" + file.contents.toString() + "</script>";
+        }
+      })
+    )
+    .pipe(
       htmlmin({
         collapseWhitespace: true
       })
