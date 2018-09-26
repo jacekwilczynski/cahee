@@ -18,7 +18,7 @@
   transition: 0.3s;
 
   &-scrolling {
-    background-color: #fff;
+    background: @body-bg;
     height: 110px;
     margin-top: -36px;
     min-height: auto;
@@ -34,9 +34,15 @@
   }
 
   @media (max-width: @screen-xs-max) {
+    background: @body-bg;
+
     &-collapse {
+      //margin-top: -@navbar-height / 3;
+      background: @body-bg;
+      left: 0;
       position: absolute;
-      margin-top: -@navbar-height / 3;
+      right: 0;
+      top: 100px;
       width: 100%;
     }
   }
