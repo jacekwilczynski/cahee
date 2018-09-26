@@ -9,7 +9,7 @@ var production = process.env.NODE_ENV === "production";
 
 del("build");
 
-gulp.task("build", function() {
+gulp.task("compile", function() {
   return gulp
     .src("src/index.html")
     .pipe(
@@ -28,13 +28,18 @@ gulp.task("build", function() {
     .pipe(gulp.dest("build"));
 });
 
-gulp.task("watch", function() {
-  return gulp.watch("src/**/*.*", ["build"]);
+gulp.task("copy", function() {
+  return gulp.src("src/assets/**/*.*").pipe(gulp.dest("build/assets"));
 });
 
-gulp.task("browserSync", ["build"], function() {
+gulp.task("build", ["compile", "copy"]);
+
+gulp.task("watch", function() {
+  return gulp.watch("src/**/*.*", ["build", browserSync.reload]);
+});
+
+gulp.task("browserSync", function() {
   browserSync.init({ server: { baseDir: "./build" } });
-  return gulp.watch("build/index.html", browserSync.reload);
 });
 
 gulp.task("dev", ["build", "watch", "browserSync"]);
