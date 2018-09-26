@@ -14,7 +14,20 @@
 @navbar-default-toggle-hover-bg: @navbar-default-toggle-border-color;
 @navbar-default-toggle-icon-bar-bg: @text-color;
 
+.navbar-resize-on-scroll() {
+  transition: 0.3s;
+
+  &-scrolling {
+    background-color: #fff;
+    height: 110px;
+    margin-top: -36px;
+    min-height: auto;
+  }
+}
+
 .navbar {
+  .navbar-resize-on-scroll();
+
   &-brand {
     font-family: Pacifico, sans-serif;
     font-size: 50px;
@@ -53,12 +66,5 @@
   &-toggle .icon-bar {
     height: 4px;
     width: 24px;
-  }
-
-  &-scrolling {
-    background-color: #fff;
-    height: 110px;
-    margin-top: -36px;
-    min-height: auto;
   }
 }
