@@ -1,6 +1,14 @@
 .section-fresh-life {
   background: url(assets/strawberry.jpg) center/cover;
-  padding: 330px 0 404px;
+
+  @media (max-width: @screen-xs-max) {
+    padding-top: @navbar-height - @navbar-shrink-by + @min-section-padding;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    padding-bottom: 404px;
+    padding-top: 330px;
+  }
 
   h1 {
     font-size: 60px;
