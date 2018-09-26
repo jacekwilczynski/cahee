@@ -4,8 +4,9 @@
   }
 
   .navbar-sm() {
-    height: 110px;
-    margin-top: -36px;
+    @compensation: -4px;
+    height: @navbar-height - (@navbar-shrink-by / 2);
+    margin-top: -((@navbar-shrink-by / 2) + @compensation);
     min-height: auto;
   }
 
