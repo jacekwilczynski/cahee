@@ -1,4 +1,4 @@
-(function() {
+$(function() {
   var $navbar = $(".navbar");
   var handleWindowScroll = function() {
     if (window.scrollY > 0) {
@@ -8,4 +8,4 @@
     }
   };
   setInterval(handleWindowScroll, 100);
-})();
+});
