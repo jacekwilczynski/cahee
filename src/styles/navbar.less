@@ -34,6 +34,14 @@
     margin-top: -36px;
     min-height: auto;
   }
+
+  @media (max-width: @screen-xs-max) {
+    &-collapse {
+      box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.25);
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
 }
 
 .navbar {
