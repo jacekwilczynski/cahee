@@ -11,4 +11,21 @@
   left: 50%;
   position: absolute;
   transform: translate(-50%, 0);
+
+  // wheel
+  &::after {
+    // filling
+    background-color: #000;
+    content: " ";
+
+    // size
+    height: 9px;
+    width: 2px;
+
+    // position
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    transform: translate(-50%, 0);
+  }
 }
