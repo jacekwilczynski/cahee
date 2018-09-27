@@ -22,7 +22,7 @@ gulp.task("compile", function() {
       inject(
         gulp
           .src(["src/styles/index.less"])
-          .pipe(less({ paths: path.join(__dirname, "vendor") }))
+          .pipe(less({ paths: path.join(__dirname, "node_modules") }))
           .pipe(cleanCss({ level: 2, compatibility: "ie8" })),
         {
           removeTags: true,
