@@ -32,6 +32,10 @@
     rgba(0, 0, 0, 0.25);
 }
 
+/**
+  The resizing of the navbar from full height to thinner.
+  Applied after scrolling down and always on xs screens.
+*/
 .navbar-sm() {
   @compensation: -4px;
   height: @navbar-height - (@navbar-shrink-by / 2);
