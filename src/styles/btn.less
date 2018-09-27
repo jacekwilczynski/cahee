@@ -1,10 +1,11 @@
+@import "../../vendor/bootstrap/less/mixins/buttons";
+
 @btn-border-radius-base: 0;
 @btn-border-radius-large: @btn-border-radius-base;
 @btn-font-weight: 300;
 
 .btn {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  color: #fff !important;
   padding: 14px 20px;
 
   &:active {
@@ -14,15 +15,7 @@
 
 .make-btn(@name, @color) {
   .btn-@{name} {
-    background-color: @color;
-
-    &:hover {
-      background-color: fade(@color, 85%);
-    }
-
-    &:active {
-      background-color: @color;
-    }
+    .button-variant(#fff, @color, @color);
   }
 }
 
