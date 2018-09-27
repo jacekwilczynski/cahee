@@ -43,21 +43,14 @@
   min-height: auto;
 }
 
-.navbar-resize-on-scroll() {
-  transition: @transition-duration;
-
-  &-scrolling {
-    .navbar-shadow();
-    .navbar-sm();
-    background: @body-bg;
-  }
-
-  @media (max-width: @screen-xs-max) {
-    .navbar-shadow();
-    .navbar-sm();
-
-    &-collapse {
-      .navbar-shadow(@bottom-only: true);
-    }
-  }
+/**
+  The variant of the navbar applied after scrolling down and always on xs screens:
+    - thinner
+    - opaque
+    - with shadow at the bottom
+*/
+.navbar-shrunk() {
+  .navbar-shadow();
+  .navbar-sm();
+  background: @body-bg;
 }

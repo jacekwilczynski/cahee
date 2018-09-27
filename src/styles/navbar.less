@@ -3,7 +3,7 @@
 @import "navbar/navbar-resize-on-scroll";
 
 .navbar {
-  .navbar-resize-on-scroll();
+  transition: @transition-duration;
 
   &-brand {
     font-family: Pacifico, sans-serif;
@@ -34,11 +34,23 @@
     width: 24px;
   }
 
+  // After scrolling down, make the navbar thin and opaque with a shadow
+  &-scrolling {
+    .navbar-shrunk();
+  }
+
   @media (max-width: @screen-xs-max) {
-    background: @body-bg;
+    // On xs screens, the navbar should always be thin and opaque with a shadow
+    .navbar-shrunk();
 
     &-collapse {
+      // Apply a special version of the shadow the the open mobile menu
+      .navbar-shadow(@bottom-only: true);
+
+      // Ensure mobile menu is opaque
       background: @body-bg;
+
+      // Position the mobile menu
       left: 0;
       position: absolute;
       right: 0;
