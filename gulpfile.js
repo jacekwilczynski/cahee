@@ -4,8 +4,9 @@ var inject = require("gulp-inject");
 var del = require("del");
 var htmlmin = require("gulp-htmlmin");
 var browserSync = require("browser-sync").create();
-var cleanCss = require("gulp-clean-css");
 var sequence = require("run-sequence");
+var cleanCss = require("gulp-clean-css");
+var uglify = require("gulp-uglify");
 
 var production = process.env.NODE_ENV === "production";
 
@@ -31,7 +32,7 @@ gulp.task("compile", function() {
       )
     )
     .pipe(
-      inject(gulp.src(["src/scripts/*.js"]), {
+      inject(gulp.src(["src/scripts/*.js"]).pipe(uglify()), {
         removeTags: true,
         transform: function(filePath, file) {
           return "<script>" + file.contents.toString() + "</script>";
