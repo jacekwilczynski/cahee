@@ -2,6 +2,11 @@
   box-shadow: 0 0 @width @color, 0 0 @width inset @color;
 }
 
+.h-center() {
+  left: 50%;
+  transform+: translateX(-50%);
+}
+
 .mouse {
   // configuration
   @color: #000;
@@ -13,10 +18,9 @@
   width: @width;
 
   // position
-  bottom: 68px;
-  left: 50%;
   position: absolute;
-  transform: translate(-50%, 0);
+  .h-center();
+  bottom: 68px;
 
   // outline
   border: 2px solid @color;
@@ -38,8 +42,7 @@
 
     // position
     position: absolute;
-    left: 50%;
+    .h-center();
     top: 4px;
-    transform: translate(-50%, 0);
   }
 }
