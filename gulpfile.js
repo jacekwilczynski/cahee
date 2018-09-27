@@ -5,10 +5,13 @@ var del = require("del");
 var htmlmin = require("gulp-htmlmin");
 var browserSync = require("browser-sync").create();
 var cleanCss = require("gulp-clean-css");
+var sequence = require("run-sequence");
 
 var production = process.env.NODE_ENV === "production";
 
-del("build");
+gulp.task("clean", function() {
+  return del("build");
+});
 
 gulp.task("compile", function() {
   return gulp
@@ -44,10 +47,12 @@ gulp.task("compile", function() {
 });
 
 gulp.task("copy", function() {
-  return gulp.src("src/assets/**/*.*").pipe(gulp.dest("build/assets"));
+  return gulp.src("src/assets/**/*.*").pipe(gulp.dest("build/assets/"));
 });
 
-gulp.task("build", ["compile", "copy"]);
+gulp.task("build", function() {
+  return sequence("clean", ["compile", "copy"]);
+});
 
 gulp.task("watch", function() {
   return gulp.watch("src/**/*.*", ["build", browserSync.reload]);

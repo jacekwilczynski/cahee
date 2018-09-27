@@ -17,6 +17,7 @@
     "gulp-clean-css": "^3.10.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-inject": "^4.3.2",
-    "gulp-less": "^4.0.1"
+    "gulp-less": "^4.0.1",
+    "run-sequence": "^2.2.1"
   }
 }
