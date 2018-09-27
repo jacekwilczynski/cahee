@@ -1,5 +1,3 @@
-@transition-duration: 0.3s;
-
 // Bootstrap variables
 @body-bg: #f9f8fb;
 @font-family-sans-serif: Raleway, sans-serif;
@@ -8,6 +6,10 @@
 @link-color: @text-color;
 @link-hover-color: lighten(@link-color, 25%);
 
+// Custom variables
+@transition-duration: 0.3s;
+
+// Document-wide font settings
 h1 {
   font-size: 90px;
   font-weight: bold;
@@ -18,6 +20,7 @@ p {
   font-weight: 300;
 }
 
+// Classes for text alignment to apply only on xs viewports
 @media (max-width: @screen-xs-max) {
   .xs-center {
     text-align: center;
