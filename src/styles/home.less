@@ -1,21 +1,23 @@
 // HOME section
 .home {
   background: url(assets/strawberry.jpg) center/cover;
-  // Allow the mouse icon to be positioned absolutely relative to this
-  position: relative;
 
   @media (max-width: @screen-xs-max) {
     // The background position prevents the strawberry from coming underneath the text, which would make it hard to read
     background-position: 100px;
-    // The top padding has to account for the fixed navbar (which is always shrunk on xs viewports)
-    padding-top: @navbar-height-shrunk + @min-section-padding-vertical;
+
+    &::before {
+      content: " ";
+      display: block;
+      height: @navbar-height-shrunk;
+    }
   }
 
-  // Apply large padding like in the PSD but only on sm+ viewports
+  // On sm+ screens, make the section full-height and center the contents
   @media (min-width: @screen-sm-min) {
-    padding-bottom: 404px;
-    // The top padding has to account for the fixed navbar (which is full size by default on sm+ viewports)
-    padding-top: @navbar-height + 180px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
   }
 
   h1 {
