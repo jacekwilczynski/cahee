@@ -12,19 +12,16 @@
   }
 
   &-nav {
-    @highlight-offset: 13px;
-    @highlight-color: #ff5f33;
-
     font-weight: bold;
     text-transform: uppercase;
 
     .active > a::before {
-      .navbar-highlight(@highlight-offset, @highlight-color, top);
+      .navbar-highlight(top);
     }
 
     a {
       &:hover::after {
-        .navbar-highlight(@highlight-offset, @highlight-color, bottom);
+        .navbar-highlight(bottom);
       }
     }
   }
