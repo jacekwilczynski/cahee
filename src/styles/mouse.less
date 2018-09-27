@@ -29,13 +29,6 @@
 
   // wheel
   &::after {
-    // filling
-    background-color: @color;
-    content: " ";
-
-    // shape
-    .two-sided-shadow(@color, @shadow-width);
-
     // size
     height: 9px;
     width: 2px;
@@ -44,5 +37,10 @@
     position: absolute;
     .h-center();
     top: 4px;
+
+    // appearance
+    background-color: @color;
+    content: " ";
+    .two-sided-shadow(@color, @shadow-width);
   }
 }
