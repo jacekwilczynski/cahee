@@ -1,7 +1,16 @@
 .mouse {
+  @color: #000;
+  @shadow-width: 2px;
+
+  .two-sided-shadow(@color, @width) {
+    box-shadow: 0 0 @width @color, 0 0 @width inset @color;
+  }
+
+  .two-sided-shadow(@color, @shadow-width);
+
   // shape
   @width: 22px;
-  border: 2px solid #000;
+  border: 2px solid @color;
   border-radius: @width / 2;
   height: 38px;
   width: @width;
@@ -15,8 +24,11 @@
   // wheel
   &::after {
     // filling
-    background-color: #000;
+    background-color: @color;
     content: " ";
+
+    // shape
+    .two-sided-shadow(@color, @shadow-width);
 
     // size
     height: 9px;
