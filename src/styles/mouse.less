@@ -1,13 +1,12 @@
+.two-sided-shadow(@color, @width) {
+  box-shadow: 0 0 @width @color, 0 0 @width inset @color;
+}
+
 .mouse {
   // configuration
   @color: #000;
   @shadow-width: 2px;
-
-  .two-sided-shadow(@color, @width) {
-    box-shadow: 0 0 @width @color, 0 0 @width inset @color;
-  }
-
-  .two-sided-shadow(@color, @shadow-width);
+  @width: 22px;
 
   // size
   height: 38px;
@@ -19,10 +18,10 @@
   position: absolute;
   transform: translate(-50%, 0);
 
-  // shape
-  @width: 22px;
+  // outline
   border: 2px solid @color;
   border-radius: @width / 2;
+  .two-sided-shadow(@color, @shadow-width);
 
   // wheel
   &::after {
