@@ -3,8 +3,6 @@
 @import "navbar/navbar-resize-on-scroll";
 
 .navbar {
-  transition: @transition-duration;
-
   &-brand {
     font-family: Pacifico, sans-serif;
     font-size: 50px;
@@ -33,6 +31,9 @@
     height: 4px;
     width: 24px;
   }
+
+  // Transition between full-height and shrunk
+  transition: @transition-duration;
 
   // After scrolling down, make the navbar thin and opaque with a shadow
   &-scrolling {
