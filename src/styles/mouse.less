@@ -1,4 +1,4 @@
-.two-sided-shadow(@color, @width, @opacity: 50%) {
+.two-sided-shadow(@color, @width, @opacity: 100%) {
   @shadow-color: fade(@color, @opacity);
   box-shadow: 0 0 @width @shadow-color, 0 0 @width inset @shadow-color;
 }
@@ -41,7 +41,7 @@
 
     // appearance
     background-color: @color;
-    border-radius: 25%;
+    border-radius: 50%;
     content: " ";
     .two-sided-shadow(@color, @shadow-width);
   }
