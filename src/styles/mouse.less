@@ -1,0 +1,49 @@
+.two-sided-shadow(@color, @width, @opacity: 100%) {
+  @shadow-color: fade(@color, @opacity);
+  box-shadow: 0 0 @width @shadow-color, 0 0 @width inset @shadow-color;
+}
+
+.h-center() {
+  left: 50%;
+  transform+: translateX(-50%);
+}
+
+.mouse {
+  // configuration
+  @color: @text-color;
+  @shadow-width: 2px;
+  @width: 22px;
+
+  // size
+  height: 38px;
+  width: @width;
+
+  // position
+  position: absolute;
+  .h-center();
+  bottom: 68px;
+  z-index: 1;
+
+  // outline
+  border: 2px solid @color;
+  border-radius: @width / 2;
+  .two-sided-shadow(@color, @shadow-width);
+
+  // wheel
+  &::after {
+    // size
+    height: 9px;
+    width: 2px;
+
+    // position
+    position: absolute;
+    .h-center();
+    top: 4px;
+
+    // appearance
+    background-color: @color;
+    border-radius: 50%;
+    content: " ";
+    .two-sided-shadow(@color, @shadow-width);
+  }
+}
