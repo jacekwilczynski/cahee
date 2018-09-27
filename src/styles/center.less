@@ -1,18 +1,21 @@
+.center-base() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /**
   Centers contents vertically
 */
 .v-center {
+  .center-base();
   align-items: center;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 /**
   Centers content in both axes
 */
 .center {
+  .center-base();
   align-items: center;
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
