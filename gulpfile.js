@@ -4,6 +4,7 @@ var inject = require("gulp-inject");
 var del = require("del");
 var htmlmin = require("gulp-htmlmin");
 var browserSync = require("browser-sync").create();
+var cleanCss = require("gulp-clean-css");
 
 var production = process.env.NODE_ENV === "production";
 
@@ -13,12 +14,18 @@ gulp.task("compile", function() {
   return gulp
     .src("src/index.html")
     .pipe(
-      inject(gulp.src(["src/styles/index.less"]).pipe(less()), {
-        removeTags: true,
-        transform: function(filePath, file) {
-          return "<style>" + file.contents.toString() + "</style>";
+      inject(
+        gulp
+          .src(["src/styles/index.less"])
+          .pipe(less())
+          .pipe(cleanCss({ level: 2, compatibility: "ie8" })),
+        {
+          removeTags: true,
+          transform: function(filePath, file) {
+            return "<style>" + file.contents.toString() + "</style>";
+          }
         }
-      })
+      )
     )
     .pipe(
       inject(gulp.src(["src/scripts/*.js"]), {
