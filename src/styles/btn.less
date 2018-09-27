@@ -1,4 +1,4 @@
-@import "../../vendor/bootstrap/less/mixins/buttons";
+@import "btn/btn-mixins";
 
 @btn-border-radius-base: 0;
 @btn-border-radius-large: @btn-border-radius-base;
@@ -10,12 +10,6 @@
 
   &:active {
     transform: translate(0, 2px);
-  }
-}
-
-.make-btn(@name, @color) {
-  .btn-@{name} {
-    .button-variant(#fff, @color, @color);
   }
 }
 
