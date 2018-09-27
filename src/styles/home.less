@@ -1,3 +1,4 @@
+// HOME section
 .home {
   background: url(assets/strawberry.jpg) center/cover;
 
@@ -8,6 +9,7 @@
     padding-top: @navbar-height-shrunk + @min-section-padding-vertical;
   }
 
+  // Apply large padding like in the PSD but only on sm+ viewports
   @media (min-width: @screen-sm-min) {
     padding-bottom: 404px;
     // The top padding has to account for the fixed navbar (which is full size by default on sm+ viewports)
