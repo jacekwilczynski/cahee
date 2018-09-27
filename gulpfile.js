@@ -1,27 +1,39 @@
+var path = require("path");
 var gulp = require("gulp");
 var less = require("gulp-less");
 var inject = require("gulp-inject");
 var del = require("del");
 var htmlmin = require("gulp-htmlmin");
 var browserSync = require("browser-sync").create();
+var sequence = require("run-sequence");
+var cleanCss = require("gulp-clean-css");
+var uglify = require("gulp-uglify");
 
 var production = process.env.NODE_ENV === "production";
 
-del("build");
+gulp.task("clean", function() {
+  return del("build");
+});
 
 gulp.task("compile", function() {
   return gulp
     .src("src/index.html")
     .pipe(
-      inject(gulp.src(["src/styles/index.less"]).pipe(less()), {
-        removeTags: true,
-        transform: function(filePath, file) {
-          return "<style>" + file.contents.toString() + "</style>";
+      inject(
+        gulp
+          .src(["src/styles/index.less"])
+          .pipe(less({ paths: path.join(__dirname, "node_modules") }))
+          .pipe(cleanCss({ level: 2, compatibility: "ie8" })),
+        {
+          removeTags: true,
+          transform: function(filePath, file) {
+            return "<style>" + file.contents.toString() + "</style>";
+          }
         }
-      })
+      )
     )
     .pipe(
-      inject(gulp.src(["src/scripts/*.js"]), {
+      inject(gulp.src(["src/scripts/*.js"]).pipe(uglify()), {
         removeTags: true,
         transform: function(filePath, file) {
           return "<script>" + file.contents.toString() + "</script>";
@@ -37,10 +49,12 @@ gulp.task("compile", function() {
 });
 
 gulp.task("copy", function() {
-  return gulp.src("src/assets/**/*.*").pipe(gulp.dest("build/assets"));
+  return gulp.src("src/assets/**/*.*").pipe(gulp.dest("build/assets/"));
 });
 
-gulp.task("build", ["compile", "copy"]);
+gulp.task("build", function() {
+  return sequence("clean", ["compile", "copy"]);
+});
 
 gulp.task("watch", function() {
   return gulp.watch("src/**/*.*", ["build", browserSync.reload]);
