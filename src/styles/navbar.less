@@ -1,56 +1,34 @@
-@import "../../vendor/bootstrap/less/bootstrap";
 @import "navbar/navbar-vars";
-@import "navbar/navbar-highlight";
-@import "navbar/navbar-resize-on-scroll";
+@import "navbar/navbar-mixins";
+@import "navbar/navbar-responsive";
 
 .navbar {
-  .navbar-resize-on-scroll();
-
   &-brand {
     font-family: Pacifico, sans-serif;
     font-size: 50px;
   }
 
   &-nav {
-    @highlight-offset: 13px;
-    @highlight-color: #ff5f33;
-
     font-weight: bold;
     text-transform: uppercase;
 
     .active > a::before {
-      .navbar-highlight(@highlight-offset, @highlight-color, top);
+      .navbar-highlight(top);
     }
 
     a {
       &:hover::after {
-        .navbar-highlight(@highlight-offset, @highlight-color, bottom);
+        .navbar-highlight(bottom);
       }
-    }
-
-    @media (max-width: @screen-xs-max) {
-      text-align: center;
     }
   }
 
   &-toggle {
     margin-top: 53px;
-  }
 
-  &-toggle .icon-bar {
-    height: 4px;
-    width: 24px;
-  }
-
-  @media (max-width: @screen-xs-max) {
-    background: @body-bg;
-
-    &-collapse {
-      background: @body-bg;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 100px;
+    .icon-bar {
+      height: 4px;
+      width: 24px;
     }
   }
 }

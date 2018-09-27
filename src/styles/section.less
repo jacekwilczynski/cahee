@@ -1,3 +1,7 @@
+/**
+  Default styles for all sections. Can be overriden on a per-section basis.
+*/
+
 @min-section-padding-vertical: 40px;
 @min-section-padding-horizontal: @min-section-padding-vertical / 4;
 
@@ -5,10 +9,7 @@
   padding: @min-section-padding-vertical @min-section-padding-horizontal;
 
   &-dark {
+    // If the section background is dark, it means the text has to be light
     color: #fff;
-  }
-
-  * {
-    margin-top: 0;
   }
 }

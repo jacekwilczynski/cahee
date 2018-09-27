@@ -1,0 +1,56 @@
+/**
+  The overline/underline effect used to highlight the active and hovered menu items.
+*/
+.navbar-highlight(@position) {
+  @h-offset: 13px;
+  @v-offset: 13px;
+
+  background-color: #ff5f33;
+  content: " ";
+  display: block;
+  height: 3px;
+  left: @h-offset;
+  position: absolute;
+  right: @h-offset;
+  @{position}: 50% - @v-offset;
+
+  @media (max-width: @screen-xs-max) {
+    display: none;
+  }
+}
+
+/**
+  The shadow effect to separate the navbar from the content below it.
+
+  For the open mobile menu, the bottom-only flag should be set to true to prevent the shadow rendering also at the top
+  of the menu, between the navbar proper and the menu.
+
+  In other cases, the flag should be false because when applied, it causes the shadow to fade out slightly at the edges.
+*/
+.navbar-shadow(@bottom-only: false) {
+  box-shadow: 0 if(@bottom-only, 5px, 0) 10px if(@bottom-only, -5px)
+    rgba(0, 0, 0, 0.25);
+}
+
+/**
+  The resizing of the navbar from full height to thinner.
+  Applied after scrolling down and always on xs screens.
+*/
+.navbar-sm() {
+  @compensation: -4px;
+  height: @navbar-height - (@navbar-shrink-by / 2);
+  margin-top: -((@navbar-shrink-by / 2) + @compensation);
+  min-height: auto;
+}
+
+/**
+  The variant of the navbar applied after scrolling down and always on xs screens:
+    - thinner
+    - opaque
+    - with shadow at the bottom
+*/
+.navbar-shrunk() {
+  .navbar-shadow();
+  .navbar-sm();
+  background: @body-bg;
+}
