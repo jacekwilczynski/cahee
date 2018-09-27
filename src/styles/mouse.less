@@ -1,5 +1,6 @@
-.two-sided-shadow(@color, @width) {
-  box-shadow: 0 0 @width @color, 0 0 @width inset @color;
+.two-sided-shadow(@color, @width, @opacity: 50%) {
+  @shadow-color: fade(@color, @opacity);
+  box-shadow: 0 0 @width @shadow-color, 0 0 @width inset @shadow-color;
 }
 
 .h-center() {
