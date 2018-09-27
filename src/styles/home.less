@@ -2,22 +2,28 @@
   background: url(assets/strawberry.jpg) center/cover;
 
   @media (max-width: @screen-xs-max) {
+    // The background position prevents the strawberry from coming underneath the text, which would make it hard to read
     background-position: 100px;
+    // The top padding has to account for the fixed navbar (which is always shrunk on xs viewports)
     padding-top: @navbar-height-shrunk + @min-section-padding-vertical;
   }
 
   @media (min-width: @screen-sm-min) {
     padding-bottom: 404px;
-    padding-top: 330px;
+    // The top padding has to account for the fixed navbar (which is full size by default on sm+ viewports)
+    padding-top: @navbar-height + 180px;
   }
 
   h1 {
+    // This is the only section with a somewhat smaller but thicker heading
     font-size: 60px;
     font-weight: 900;
+    // Custom margin as in the PSD
     margin-bottom: 16px;
   }
 
   p {
+    // Custom margin and max width as in the PSD
     margin-bottom: 35px;
     max-width: 370px;
   }
