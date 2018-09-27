@@ -1,3 +1,4 @@
+var path = require("path");
 var gulp = require("gulp");
 var less = require("gulp-less");
 var inject = require("gulp-inject");
@@ -21,7 +22,7 @@ gulp.task("compile", function() {
       inject(
         gulp
           .src(["src/styles/index.less"])
-          .pipe(less())
+          .pipe(less({ paths: path.join(__dirname, "vendor") }))
           .pipe(cleanCss({ level: 2, compatibility: "ie8" })),
         {
           removeTags: true,
